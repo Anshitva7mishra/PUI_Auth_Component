@@ -182,7 +182,7 @@ export default function Signin() {
                 <button
                   type="button"
                   onClick={() => navigate("/PUI/login/forgot-password")}
-                  className="text-xs font-medium text-gray-500 hover:text-blue-400 transition-colors"
+                  className="text-xs font-medium text-gray-500 hover:text-blue-400 transition-colors cursor-pointer"
                 >
                   Forgot Password?
                 </button>
