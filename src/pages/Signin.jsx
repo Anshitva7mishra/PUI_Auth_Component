@@ -13,7 +13,7 @@ import {
   Activity,
   Globe,
 } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 
 const FacebookIcon = ({ size = 20, className }) => (
   <svg
@@ -40,6 +40,7 @@ const GoogleIcon = ({ size = 20, className }) => (
 );
 
 export default function Signin() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -60,7 +61,6 @@ export default function Signin() {
     unfocused: { scale: 1, transition: { duration: 0.3 } },
   };
 
-
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-[#050505] p-4 sm:p-6 lg:p-8 font-sans selection:bg-blue-500/30 overflow-x-hidden">
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -76,17 +76,22 @@ export default function Signin() {
       >
         <div className="w-full lg:w-[45%] p-8 md:p-12 flex flex-col justify-between relative z-10 bg-[#0f0f11]">
           <div className="flex justify-between items-center mb-8">
-            <button className="p-2 rounded-full border border-white/10 hover:bg-white/5 cursor-pointer transition text-gray-400 hover:text-white">
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
+              className="p-2 rounded-full border border-white/10 hover:bg-white/5 cursor-pointer transition text-gray-400 hover:text-white"
+            >
               <ArrowLeft size={20} />
             </button>
             <div className="text-sm font-medium">
               <span className="text-gray-500">New here? </span>
-              <a
-                href="/"
+              <button
+                type="button"
+                onClick={() => navigate("/")}
                 className="text-blue-500 hover:text-blue-400 hover:underline font-bold transition-colors cursor-pointer"
               >
                 Sign up
-              </a>
+              </button>
             </div>
           </div>
 
@@ -174,12 +179,13 @@ export default function Signin() {
               </motion.div>
 
               <div className="flex justify-end">
-                <a
-                  href="/PUI/login/forgot-password"
+                <button
+                  type="button"
+                  onClick={() => navigate("/PUI/login/forgot-password")}
                   className="text-xs font-medium text-gray-500 hover:text-blue-400 transition-colors"
                 >
                   Forgot Password?
-                </a>
+                </button>
               </div>
 
               <div className="pt-4 flex flex-col sm:flex-row items-center gap-6">

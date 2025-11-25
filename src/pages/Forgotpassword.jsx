@@ -11,9 +11,11 @@ import {
   Unlock,
   Lock,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
+export default function ForgotPassword() {
+  const navigate = useNavigate();
 
-export default function ForgotPasswordCard() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [focusedField, setFocusedField] = useState(null);
@@ -44,15 +46,15 @@ export default function ForgotPasswordCard() {
       >
         <div className="w-full lg:w-[45%] p-8 md:p-12 flex flex-col justify-between relative z-10 bg-[#0f0f11]">
           <div className="flex justify-between items-center mb-8">
-            <a
-              href="/PUI/login"
+            <button
+              onClick={() => navigate("/PUI/login")}
               className="p-2 rounded-full border border-white/10 hover:bg-white/5 transition text-gray-400 hover:text-white group"
             >
               <ArrowLeft
                 size={20}
                 className="cursor-pointer group-hover:-translate-x-1 transition-transform"
               />
-            </a>
+            </button>
             <div />
           </div>
 

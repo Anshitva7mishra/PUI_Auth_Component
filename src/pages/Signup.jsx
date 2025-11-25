@@ -16,7 +16,7 @@ import {
   Activity,
   Globe,
 } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 
 const FacebookIcon = ({ size = 20, className }) => (
   <svg
@@ -43,6 +43,7 @@ const GoogleIcon = ({ size = 20, className }) => (
 );
 
 export default function Signup() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "Dany Daniel",
     email: "11DanielaPUi@gmail.com",
@@ -86,12 +87,12 @@ export default function Signup() {
             </button>
             <div className="text-sm font-medium">
               <span className="text-gray-500">Already a member? </span>
-              <a
-                href="/PUI/login"
+              <span
+                onClick={() => navigate("/PUI/login")}
                 className="text-blue-500 hover:text-blue-400 hover:underline font-bold transition-colors cursor-pointer"
               >
                 Sign in
-              </a>
+              </span>
             </div>
           </div>
 
